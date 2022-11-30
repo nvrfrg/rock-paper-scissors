@@ -34,17 +34,17 @@ function playRound(playerSelection, computerSelection) {
         break;
 
       case 'Paper': 
-        result = "You lost! Paper beats rock.";
+        result = "You lost!";
         break;
 
       case 'Scissors':
-        result = 'You won! Rock beats scissors.';
+        result = 'You won!';
         break;
     }
   } else if (playerSelection === 'paper') {
     switch (computerSelection) {
       case 'Rock':
-        result = 'You won! Paper beats rock.';
+        result = 'You won!';
         break;
 
       case 'Paper':
@@ -52,16 +52,16 @@ function playRound(playerSelection, computerSelection) {
         break;
 
       case 'Scissors': 
-        result = 'You lost! Scissors beat paper';
+        result = 'You lost!';
     }
   } else if (playerSelection === 'scissors') {
     switch (computerSelection) {
       case 'Rock':
-        result = 'You lost! Rock beats scissors';
+        result = 'You lost!';
         break;
 
       case 'Paper':
-        result = 'You won! Scissors beat paper';
+        result = 'You won!';
         break;
 
       case 'Scissors': 
@@ -79,3 +79,32 @@ function playRound(playerSelection, computerSelection) {
 function getPlayerChoice() {
   return prompt('What do you choose?').toLowerCase();
 }
+
+// Play playRound() 5 times;
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+  for(i = 0; i < 5; i++) {
+    let result = playRound(getPlayerChoice(), getComputerChoice());
+    console.log(result);
+
+    if (result === 'You won!') {
+      playerScore++ 
+    } else if (result === 'You lost!') {
+      computerScore++ 
+    }
+  }
+  console.log(`The final score is:
+    Player = ${playerScore}
+    Computer = ${computerScore}`);
+
+  if (playerScore > computerScore) {
+    console.log('Congratulations! You have won.');
+  } else if (playerScore < computerScore) {
+    console.log('Sorry but you lost to the computer.');
+  } else {
+    console.log('The game is tied');
+  }
+}
+  
+game();
