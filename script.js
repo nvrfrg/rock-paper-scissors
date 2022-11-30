@@ -22,9 +22,6 @@ function getComputerChoice() {
   }
   return choice;
 }
-
-const playerSelection = prompt('What do you chose?').toLowerCase();
-const computerSelection = getComputerChoice();
  
 // Decide a winnder based on both choices 
 function playRound(playerSelection, computerSelection) {
@@ -76,4 +73,9 @@ function playRound(playerSelection, computerSelection) {
   }
 
   return result;
+}
+
+// Get a choice from a player 
+function getPlayerChoice() {
+  return prompt('What do you choose?').toLowerCase();
 }
